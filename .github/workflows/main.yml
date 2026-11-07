@@ -30,7 +30,9 @@ jobs:
 
       - name: Install Haxe dependencies
         run: |
-          haxelib git hxcpp https://github.com/MaysLastPlays-Stuff/hxcpp-h --quiet
+          haxelib git libhxcpp https://github.com/openfl/libhxcpp --quiet
+          haxelib run libhxcpp setup
+          haxe --cwd "$(haxelib libpath libhxcpp)/tools/hxcpp" compile.hxml
           haxelib install format --quiet
           haxelib git hxp https://github.com/openfl/hxp --quiet
 
@@ -78,7 +80,9 @@ jobs:
 
       - name: Install Haxe dependencies
         run: |
-          haxelib git hxcpp https://github.com/MaysLastPlays-Stuff/hxcpp-h --quiet
+          haxelib git libhxcpp https://github.com/openfl/libhxcpp --quiet
+          haxelib run libhxcpp setup
+          haxe --cwd "$(haxelib libpath libhxcpp)/tools/hxcpp" compile.hxml
           haxelib install format --quiet
           haxelib git hxp https://github.com/openfl/hxp --quiet
 
@@ -117,7 +121,9 @@ jobs:
 
       - name: Install Haxe dependencies
         run: |
-          haxelib git hxcpp https://github.com/MaysLastPlays-Stuff/hxcpp-h --quiet
+          haxelib git libhxcpp https://github.com/openfl/libhxcpp --quiet
+          haxelib run libhxcpp setup
+          haxe --cwd "$(haxelib libpath libhxcpp)/tools/hxcpp" compile.hxml
           haxelib install format --quiet
           haxelib git hxp https://github.com/openfl/hxp --quiet
 
@@ -168,7 +174,9 @@ jobs:
 
       - name: Install Haxe dependencies
         run: |
-          haxelib git hxcpp https://github.com/MaysLastPlays-Stuff/hxcpp-h --quiet
+          haxelib git libhxcpp https://github.com/openfl/libhxcpp --quiet
+          haxelib run libhxcpp setup
+          haxe --cwd "$(haxelib libpath libhxcpp)/tools/hxcpp" compile.hxml
           haxelib install format --quiet
           haxelib install hxp --quiet
 
@@ -206,7 +214,9 @@ jobs:
  
       - name: Install Haxe dependencies
         run: |
-          haxelib git hxcpp https://github.com/MaysLastPlays-Stuff/hxcpp-h --quiet
+          haxelib git libhxcpp https://github.com/openfl/libhxcpp --quiet
+          haxelib run libhxcpp setup
+          haxe --cwd "$(haxelib libpath libhxcpp)/tools/hxcpp" compile.hxml
           haxelib install format --quiet
           haxelib git hxp https://github.com/openfl/hxp --quiet
  
@@ -246,7 +256,9 @@ jobs:
 
       - name: Install Haxe dependencies
         run: |
-          haxelib git hxcpp https://github.com/MaysLastPlays-Stuff/hxcpp-h --quiet
+          haxelib git libhxcpp https://github.com/openfl/libhxcpp --quiet
+          haxelib run libhxcpp setup
+          haxe --cwd "$(haxelib libpath libhxcpp)/tools/hxcpp" compile.hxml
           haxelib install format --quiet
           haxelib git hxp https://github.com/openfl/hxp --quiet
           haxelib install svg --quiet
@@ -394,7 +406,8 @@ jobs:
 
       - name: Install Haxe dependencies
         run: |
-          haxelib git hxcpp https://github.com/MaysLastPlays-Stuff/hxcpp-h --quiet
+          haxelib git libhxcpp https://github.com/openfl/libhxcpp --quiet
+          haxelib run libhxcpp setup
           haxelib install format --quiet
           haxelib git hxp https://github.com/openfl/hxp --quiet
           haxelib git lime-samples https://github.com/openfl/lime-samples --quiet
