@@ -104,6 +104,11 @@ class HXProject extends Script
 		initialize();
 
 		var classRef = Type.resolveClass(inputData.name);
+		if (classRef == null)
+		{
+			Log.error('Unable to find class ${ inputData.name } in ${ inputData.projectFile }');
+			return;
+		}
 		var instance = Type.createInstance(classRef, []);
 
 		var serializer = new Serializer();
@@ -179,6 +184,10 @@ class HXProject extends Script
 		else
 		{
 			environment = Sys.environment();
+			for (conflict in ["air", "android", "cpp", "flash", "hl", "html5", "ios", "linux", "mac", "neko", "webassembly", "windows"])
+			{
+				environment.remove(conflict);
+			}
 		}
 
 		haxedefs = new Map<String, Dynamic>();
@@ -372,7 +381,7 @@ class HXProject extends Script
 
 		var path = FileSystem.fullPath(Path.withoutDirectory(projectFile));
 		var name = Path.withoutDirectory(Path.withoutExtension(projectFile));
-		name = name.substr(0, 1).toUpperCase() + name.substr(1);
+		name = name.charAt(0).toUpperCase() + name.substr(1);
 
 		var tempDirectory = System.getTemporaryDirectory();
 		var classFile = Path.combine(tempDirectory, name + ".hx");
@@ -419,6 +428,7 @@ class HXProject extends Script
 				name: name,
 				target: HXProject._target,
 				debug: HXProject._debug,
+				projectFile: projectFile,
 				targetFlags: HXProject._targetFlags,
 				templatePaths: HXProject._templatePaths,
 				userDefines: HXProject._userDefines,
